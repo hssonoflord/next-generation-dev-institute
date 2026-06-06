@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="다음세대개발원 — 다음 세대를 위한 교육과 리더십"
+    />
+    <title>다음세대개발원</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body data-page="home">
+    <header class="header" id="header">
+      <div class="container header__inner">
+        <a href="index.html" class="logo" data-logo></a>
+        <button
+          class="menu-toggle"
+          id="menu-toggle"
+          type="button"
+          aria-label="메뉴 열기"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="nav" id="nav" aria-label="주요 메뉴"></nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero__inner">
+          <div class="hero__content">
+            <h1 class="hero__title" id="hero-title"></h1>
+            <p class="hero__subtitle" id="hero-subtitle"></p>
+            <div class="hero__actions" id="hero-actions"></div>
+          </div>
+          <div class="hero__visual">
+            <div class="hero__visual-frame">
+              <img
+                class="hero__illustration"
+                id="hero-illustration"
+                src="images/hero-illustration.svg"
+                alt=""
+                width="560"
+                height="480"
+                loading="eager"
+              />
+              <div class="hero__visual-glow" aria-hidden="true"></div>
+            </div>
+            <div class="hero__visual-tags" id="hero-visual-tags" aria-hidden="true"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="container">
+          <p class="section-label" id="about-label"></p>
+          <h2 class="section-title" id="about-heading"></h2>
+          <div class="about-grid">
+            <div class="about-text" id="about-text"></div>
+            <div class="values-grid" id="values-grid"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section mission">
+        <div class="container">
+          <p class="section-label" id="mission-label"></p>
+          <h2 class="section-title" id="mission-heading"></h2>
+          <div class="mission-track" id="mission-track"></div>
+        </div>
+      </section>
+
+      <section class="section" id="news">
+        <div class="container">
+          <p class="section-label" id="news-label"></p>
+          <h2 class="section-title" id="news-heading"></h2>
+          <div class="news-list" id="news-list"></div>
+        </div>
+      </section>
+
+      <section class="section impact">
+        <div class="container">
+          <p class="section-label" id="impact-label"></p>
+          <blockquote class="impact-quote" id="impact-quote"></blockquote>
+          <div class="stats-grid" id="stats-grid"></div>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="container">
+          <p class="section-label" id="contact-label"></p>
+          <h2 class="section-title" id="contact-heading"></h2>
+          <p class="section-desc" id="contact-desc"></p>
+          <div class="contact-card">
+            <div class="contact-info" id="contact-info"></div>
+            <div>
+              <p class="section-desc">
+                교육 신청 및 협력 제안을 환영합니다.<br />
+                연락 주시면 빠른 시일 내에 답변 드리겠습니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" id="footer"></footer>
+
+    <script src="content/site-content.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

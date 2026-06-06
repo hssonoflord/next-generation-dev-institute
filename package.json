@@ -1,0 +1,11 @@
+{
+  "name": "next-generation-dev-institute",
+  "private": true,
+  "scripts": {
+    "start": "serve . -l 8080",
+    "dev": "serve . -l 8080"
+  },
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
+}

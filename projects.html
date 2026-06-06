@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="다음세대개발원 교육 프로그램 — 청소년, 학부모, 리더 양성"
+    />
+    <title>교육 프로그램 — 다음세대개발원</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body data-page="projects">
+    <header class="header" id="header">
+      <div class="container header__inner">
+        <a href="index.html" class="logo" data-logo></a>
+        <button
+          class="menu-toggle"
+          id="menu-toggle"
+          type="button"
+          aria-label="메뉴 열기"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="nav" id="nav" aria-label="주요 메뉴"></nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <h1 class="page-hero__title" id="page-title"></h1>
+          <div class="page-hero__divider"></div>
+        </div>
+      </section>
+
+      <section class="filter-section">
+        <div class="container">
+          <h2 class="filter-section__title" id="filter-title"></h2>
+          <div class="filter-tabs" id="filter-tabs" role="tablist"></div>
+          <div class="programs-grid" id="programs-grid"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" id="footer"></footer>
+
+    <script src="content/site-content.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
