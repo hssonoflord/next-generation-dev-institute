@@ -185,18 +185,18 @@ function renderHomePage() {
   if (connectionFlow) {
     connectionFlow.innerHTML = connection.steps
       .map((step, i) => {
-        const connector =
-          i < connection.steps.length - 1
-            ? `<div class="flow-connector" aria-hidden="true"><span class="flow-connector__line"></span><span class="flow-connector__arrow">↓</span></div>`
-            : "";
+        const isFirst = i === 0;
+        const isLast = i === connection.steps.length - 1;
+        const lines = step.lines
+          .map((line) => `<p class="flow-chevron__line">${line}</p>`)
+          .join("");
+
         return `
           <div class="flow-step">
-            <div class="flow-step__node">
-              <span class="flow-step__label">${step.label}</span>
-              <p class="flow-step__text">${step.text}</p>
+            <div class="flow-chevron${isFirst ? " flow-chevron--first" : ""}${isLast ? " flow-chevron--last" : ""}">
+              <div class="flow-chevron__content">${lines}</div>
             </div>
           </div>
-          ${connector}
         `;
       })
       .join("");
