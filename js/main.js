@@ -181,10 +181,24 @@ function renderHomePage() {
     `;
   }
 
-  const connectionPoints = document.getElementById("connection-points");
-  if (connectionPoints) {
-    connectionPoints.innerHTML = connection.points
-      .map((point) => `<li class="connection-point">${point}</li>`)
+  const connectionFlow = document.getElementById("connection-flow");
+  if (connectionFlow) {
+    connectionFlow.innerHTML = connection.steps
+      .map((step, i) => {
+        const connector =
+          i < connection.steps.length - 1
+            ? `<div class="flow-connector" aria-hidden="true"><span class="flow-connector__line"></span><span class="flow-connector__arrow">↓</span></div>`
+            : "";
+        return `
+          <div class="flow-step">
+            <div class="flow-step__node">
+              <span class="flow-step__label">${step.label}</span>
+              <p class="flow-step__text">${step.text}</p>
+            </div>
+          </div>
+          ${connector}
+        `;
+      })
       .join("");
   }
 

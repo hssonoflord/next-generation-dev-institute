@@ -602,21 +602,81 @@ button {
   font-weight: 400;
 }
 
-.connection-points {
+.connection-flow {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  align-items: center;
 }
 
-.connection-point {
+.flow-step {
+  width: 100%;
+}
+
+.flow-step__node {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-lg);
+  padding: 24px 28px;
+  text-align: center;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.flow-step__node:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(201, 162, 39, 0.4);
+}
+
+.flow-step__label {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  background: rgba(201, 162, 39, 0.15);
+  border: 1px solid rgba(201, 162, 39, 0.35);
+  padding: 5px 14px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+}
+
+.flow-step__text {
   font-size: 15px;
   line-height: 1.75;
-  color: rgba(255, 255, 255, 0.8);
-  padding: 20px 24px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: var(--radius);
-  border-left: 3px solid var(--color-accent);
-  position: relative;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.flow-connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4px 0;
+}
+
+.flow-connector__line {
+  display: block;
+  width: 2px;
+  height: 20px;
+  background: linear-gradient(
+    to bottom,
+    rgba(201, 162, 39, 0.6),
+    rgba(201, 162, 39, 0.2)
+  );
+}
+
+.flow-connector__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-accent);
+  background: rgba(201, 162, 39, 0.12);
+  border: 1px solid rgba(201, 162, 39, 0.35);
+  border-radius: 50%;
+  line-height: 1;
 }
 
 /* ── Indicators ── */
