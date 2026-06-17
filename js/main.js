@@ -187,20 +187,24 @@ function renderHomePage() {
 
   const connectionFlow = document.getElementById("connection-flow");
   if (connectionFlow) {
-    connectionFlow.innerHTML = connection.steps
-      .map((step, i) => {
-        const isFirst = i === 0;
-        const isLast = i === connection.steps.length - 1;
-        const lines = step.lines
-          .map((line) => `<p class="flow-chevron__line">${line}</p>`)
+    connectionFlow.innerHTML = connection.flowRows
+      .map((row) => {
+        const cells = row.cells
+          .map((cell) => `<div class="flow-cell">${cell}</div>`)
           .join("");
+        const arrow = row.showArrowAfter
+          ? `
+            <div class="flow-arrow" aria-hidden="true">
+              <span class="flow-arrow__icon">↓</span>
+            </div>
+          `
+          : "";
 
         return `
-          <div class="flow-step">
-            <div class="flow-chevron${isFirst ? " flow-chevron--first" : ""}${isLast ? " flow-chevron--last" : ""}">
-              <div class="flow-chevron__content">${lines}</div>
-            </div>
+          <div class="flow-row flow-row--cols-${row.cells.length}">
+            ${cells}
           </div>
+          ${arrow}
         `;
       })
       .join("");
