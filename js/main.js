@@ -1,5 +1,5 @@
 /**
- * 다음세대개발원 — 공통 UI 로직
+ * 다음세대개발원 (WeGrow Community) — 공통 UI 로직
  */
 
 function initHeader() {
@@ -56,6 +56,7 @@ function renderFooter() {
     <div class="container footer__inner">
       <div>
         <div class="footer__brand">${site.name}</div>
+        <div class="footer__tagline">${site.nameEn}</div>
         <div class="footer__copyright">${footerContent.copyright}</div>
       </div>
       <div class="footer__links">
@@ -78,20 +79,49 @@ function renderLogo() {
 
 function setPageMeta() {
   const { site } = SITE_CONTENT;
-  document.title = `${site.name} — ${site.nameEn}`;
+  const page = document.body.dataset.page;
+  if (page === "home") {
+    document.title = `${site.name} — ${site.nameEn}`;
+  }
   const desc = document.querySelector('meta[name="description"]');
   if (desc) desc.setAttribute("content", site.description);
 }
 
 function renderHomePage() {
-  const { site, hero, about, mission, news, impact, contact } = SITE_CONTENT;
+  const {
+    hero,
+    scripture,
+    about,
+    connection,
+    indicators,
+    necessity,
+    collaboration,
+    contact,
+  } = SITE_CONTENT;
 
+  setText("hero-badge", hero.badge);
   setText("hero-title", hero.title);
   setText("hero-subtitle", hero.subtitle);
 
-  const heroIllustration = document.getElementById("hero-illustration");
-  if (heroIllustration && hero.illustrationAlt) {
-    heroIllustration.alt = hero.illustrationAlt;
+  const heroPillars = document.getElementById("hero-pillars");
+  if (heroPillars) {
+    heroPillars.innerHTML = `
+      <div class="pillar-card pillar-card--faith">
+        <span class="pillar-card__icon">✦</span>
+        <span class="pillar-card__label">신앙</span>
+      </div>
+      <div class="pillar-card pillar-card--character">
+        <span class="pillar-card__icon">◈</span>
+        <span class="pillar-card__label">인성</span>
+      </div>
+      <div class="pillar-card pillar-card--study">
+        <span class="pillar-card__icon">◎</span>
+        <span class="pillar-card__label">학업</span>
+      </div>
+      <div class="pillar-card__center">
+        <span>제자화</span>
+      </div>
+    `;
   }
 
   const heroVisualTags = document.getElementById("hero-visual-tags");
@@ -109,6 +139,14 @@ function renderHomePage() {
     `;
   }
 
+  setText("scripture-label", scripture.sectionTitle);
+  const scriptureVerses = document.getElementById("scripture-verses");
+  if (scriptureVerses) {
+    scriptureVerses.innerHTML = scripture.verses.map((v) => `<p>${v}</p>`).join("");
+  }
+  setText("scripture-ref", scripture.reference);
+  setText("scripture-summary", scripture.summary);
+
   setText("about-label", about.sectionTitle);
   setText("about-heading", about.heading);
 
@@ -123,6 +161,7 @@ function renderHomePage() {
       .map(
         (v) => `
       <div class="value-card">
+        <span class="value-card__icon" aria-hidden="true">${v.icon}</span>
         <h3 class="value-card__title">${v.title}</h3>
         <p class="value-card__desc">${v.description}</p>
       </div>
@@ -131,52 +170,88 @@ function renderHomePage() {
       .join("");
   }
 
-  setText("mission-label", mission.sectionTitle);
-  setText("mission-heading", mission.heading);
+  setText("connection-label", connection.sectionTitle);
+  setText("connection-heading", connection.heading);
 
-  const missionTrack = document.getElementById("mission-track");
-  if (missionTrack) {
-    missionTrack.innerHTML = mission.items
+  const connectionScripture = document.getElementById("connection-scripture");
+  if (connectionScripture) {
+    connectionScripture.innerHTML = `
+      <cite class="connection-scripture__ref">${connection.scripture.reference}</cite>
+      <blockquote class="connection-scripture__text">${connection.scripture.text}</blockquote>
+    `;
+  }
+
+  const connectionPoints = document.getElementById("connection-points");
+  if (connectionPoints) {
+    connectionPoints.innerHTML = connection.points
+      .map((point) => `<li class="connection-point">${point}</li>`)
+      .join("");
+  }
+
+  setText("indicators-label", indicators.sectionTitle);
+  setText("indicators-heading", indicators.heading);
+  setText("indicators-desc", indicators.description);
+
+  const statsGrid = document.getElementById("stats-grid");
+  if (statsGrid) {
+    statsGrid.innerHTML = indicators.stats
       .map(
-        (item) => `
-      <div class="mission-card">
-        <div class="mission-card__keyword">${item.keyword}</div>
-        <p class="mission-card__desc">다음 세대를 위해 ${item.description}</p>
+        (stat) => `
+      <div class="stat-card">
+        <div class="stat-card__value">${stat.value}</div>
+        <div class="stat-card__label">${stat.label}</div>
       </div>
     `
       )
       .join("");
   }
 
-  setText("news-label", news.sectionTitle);
-  setText("news-heading", news.heading);
+  setText("necessity-label", necessity.sectionTitle);
+  setText("necessity-heading", necessity.heading);
+  setText("necessity-intro", necessity.intro);
 
-  const newsList = document.getElementById("news-list");
-  if (newsList) {
-    newsList.innerHTML = news.items
+  const necessityGrid = document.getElementById("necessity-grid");
+  if (necessityGrid) {
+    necessityGrid.innerHTML = necessity.items
       .map(
         (item) => `
-      <article class="news-item">
-        <span class="news-item__category">${item.category}</span>
-        <h3 class="news-item__title">${item.title}</h3>
-        <time class="news-item__date" datetime="${item.date}">${item.date}</time>
+      <article class="necessity-card">
+        <span class="necessity-card__number">${item.number}</span>
+        <h3 class="necessity-card__title">${item.title}</h3>
+        <p class="necessity-card__desc">${item.description}</p>
       </article>
     `
       )
       .join("");
   }
 
-  setText("impact-label", impact.sectionTitle);
-  setText("impact-quote", impact.quote);
+  const churchResources = document.getElementById("church-resources");
+  if (churchResources) {
+    churchResources.innerHTML = `
+      <h3 class="church-resources__title">${necessity.church.title}</h3>
+      <div class="church-resources__tags">
+        ${necessity.church.resources
+          .map((r) => `<span class="church-resources__tag">${r}</span>`)
+          .join("")}
+      </div>
+      <p class="church-resources__conclusion">${necessity.church.conclusion}</p>
+    `;
+  }
 
-  const statsGrid = document.getElementById("stats-grid");
-  if (statsGrid) {
-    statsGrid.innerHTML = impact.stats
+  setText("collaboration-label", collaboration.sectionTitle);
+  setText("collaboration-heading", collaboration.heading);
+  setText("collaboration-desc", collaboration.description);
+
+  const collaborationGrid = document.getElementById("collaboration-grid");
+  if (collaborationGrid) {
+    collaborationGrid.innerHTML = collaboration.roles
       .map(
-        (stat) => `
-      <div class="stat-card">
-        <div class="stat-card__value">${stat.value}</div>
-        <div class="stat-card__label">${stat.label}</div>
+        (role, i) => `
+      <div class="collab-card${i === 0 ? " collab-card--institute" : " collab-card--church"}">
+        <h3 class="collab-card__title">${role.title}</h3>
+        <ul class="collab-card__list">
+          ${role.items.map((item) => `<li>${item}</li>`).join("")}
+        </ul>
       </div>
     `
       )
@@ -214,6 +289,7 @@ function renderProjectsPage() {
   const { programs } = SITE_CONTENT;
 
   setText("page-title", programs.pageTitle);
+  setText("page-subtitle", programs.pageSubtitle);
   setText("filter-title", programs.sectionTitle);
 
   const filterTabs = document.getElementById("filter-tabs");
@@ -240,6 +316,11 @@ function renderProjectsPage() {
       <span class="program-card__category">${item.categoryLabel}</span>
       <h2 class="program-card__title">${item.title}</h2>
       <p class="program-card__desc">${item.description}</p>
+      ${
+        item.features
+          ? `<ul class="program-card__features">${item.features.map((f) => `<li>${f}</li>`).join("")}</ul>`
+          : ""
+      }
     </article>
   `
     )
