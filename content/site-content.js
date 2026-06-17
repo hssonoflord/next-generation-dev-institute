@@ -6,6 +6,8 @@ const SITE_CONTENT = {
   site: {
     name: "다음세대개발원",
     nameEn: "WeGrow Community",
+    logoIcon: "images/logo-icon.png",
+    logoIconAlt: "다음세대개발원 십자가 로고",
     tagline: "제자화를 통해 신앙과 인성과 학업을 함께 향상시키는 방과후교육공동체",
     description:
       "WeGrow Community(WGC) — 제자화를 통한 전인교육으로 다음세대의 신앙·인성·학업을 함께 향상시키는 방과후교육공동체",

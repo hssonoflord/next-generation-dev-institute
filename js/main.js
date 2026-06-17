@@ -69,10 +69,14 @@ function renderFooter() {
 }
 
 function renderLogo() {
+  const { site } = SITE_CONTENT;
   document.querySelectorAll("[data-logo]").forEach((el) => {
     el.innerHTML = `
-      <span class="logo__name">${SITE_CONTENT.site.name}</span>
-      <span class="logo__en">${SITE_CONTENT.site.nameEn}</span>
+      <img class="logo__icon" src="${site.logoIcon}" alt="${site.logoIconAlt}" width="40" height="40" />
+      <span class="logo__text">
+        <span class="logo__name">${site.name}</span>
+        <span class="logo__en">${site.nameEn}</span>
+      </span>
     `;
   });
 }
