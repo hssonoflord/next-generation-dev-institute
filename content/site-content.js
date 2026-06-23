@@ -27,6 +27,7 @@ const SITE_CONTENT = {
     title: "신앙·인성·학업을\n함께 향상시키는\n방과후교육공동체",
     subtitle:
       "제자화를 통해 긍정적인 정체성과 소명적 비전을 형성하고, 신앙·인성·학업을 연결하는 전인교육을 실현합니다.",
+    backgroundImage: "images/hero-bg.png",
     ctaPrimary: { label: "프로그램 보기", href: "projects.html" },
     ctaSecondary: { label: "미션 & 철학", href: "#mission" },
     illustrationAlt:
@@ -142,6 +143,7 @@ const SITE_CONTENT = {
     pageTitle: "콘텐츠 & 프로그램",
     pageSubtitle:
       "AI 기반 학습과 제자화 코칭이 결합된 WGC 통합 교육 프로그램",
+    backgroundImage: "images/programs-hero-bg.png",
     sectionTitle: "프로그램",
     categories: [
       { id: "all", label: "전체" },

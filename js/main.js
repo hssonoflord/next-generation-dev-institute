@@ -107,6 +107,11 @@ function renderHomePage() {
   setText("hero-title", hero.title);
   setText("hero-subtitle", hero.subtitle);
 
+  const heroBg = document.querySelector(".hero__bg");
+  if (heroBg && hero.backgroundImage) {
+    heroBg.src = hero.backgroundImage;
+  }
+
   const heroPillars = document.getElementById("hero-pillars");
   if (heroPillars) {
     heroPillars.innerHTML = `
@@ -309,6 +314,11 @@ function renderHomePage() {
 
 function renderProjectsPage() {
   const { programs } = SITE_CONTENT;
+
+  const pageHeroBg = document.querySelector(".page-hero__bg");
+  if (pageHeroBg && programs.backgroundImage) {
+    pageHeroBg.src = programs.backgroundImage;
+  }
 
   setText("page-title", programs.pageTitle);
   setText("page-subtitle", programs.pageSubtitle);
