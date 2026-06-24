@@ -385,6 +385,7 @@ button {
   align-items: center;
   justify-content: center;
   gap: 8px;
+  min-height: 0;
   background: var(--color-surface);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
@@ -407,6 +408,9 @@ button {
 
 .pillar-card--study {
   grid-column: 1 / -1;
+  grid-row: 2;
+  justify-self: center;
+  width: calc((100% - 16px) / 2);
   border-top: 3px solid var(--color-accent);
 }
 
