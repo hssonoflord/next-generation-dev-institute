@@ -192,41 +192,59 @@ function renderHomePage() {
 
   const connectionFlow = document.getElementById("connection-flow");
   if (connectionFlow) {
-    connectionFlow.innerHTML = connection.flowRows
-      .map((row) => {
-        const cells = row.cells
-          .map((cell) => {
-            if (row.splitDividerAfter) {
-              return `
-                <div class="flow-cell flow-cell--discipleship">
-                  <div class="flow-cell__label">${cell}</div>
-                  <div class="flow-cell__split-row" aria-hidden="true">
-                    <span class="flow-cell__split-part"></span>
-                    <span class="flow-cell__split-part"></span>
-                  </div>
-                </div>
-              `;
-            }
+    const flowParts = [];
+    let rowIndex = 0;
 
-            return `<div class="flow-cell">${cell}</div>`;
-          })
-          .join("");
-        const arrow = row.showArrowAfter
-          ? `
+    while (rowIndex < connection.flowRows.length) {
+      const row = connection.flowRows[rowIndex];
+      const nextRow = connection.flowRows[rowIndex + 1];
+
+      if (row.splitDividerAfter && nextRow?.cells.length === 2) {
+        flowParts.push(`
+          <div class="flow-row flow-row--cols-1">
+            <div class="flow-cell flow-cell--discipleship">
+              <div class="flow-cell__label">${row.cells[0]}</div>
+              <div class="flow-cell__divider" aria-hidden="true"></div>
+              <div class="flow-cell__split-row">
+                ${nextRow.cells
+                  .map((cell) => `<div class="flow-cell__split-part">${cell}</div>`)
+                  .join("")}
+              </div>
+            </div>
+          </div>
+          ${
+            nextRow.showArrowAfter
+              ? `
             <div class="flow-arrow" aria-hidden="true">
               <span class="flow-arrow__icon">↓</span>
             </div>
           `
-          : "";
+              : ""
+          }
+        `);
+        rowIndex += 2;
+        continue;
+      }
 
-        return `
-          <div class="flow-row flow-row--cols-${row.cells.length}">
-            ${cells}
+      const cells = row.cells.map((cell) => `<div class="flow-cell">${cell}</div>`).join("");
+      const arrow = row.showArrowAfter
+        ? `
+          <div class="flow-arrow" aria-hidden="true">
+            <span class="flow-arrow__icon">↓</span>
           </div>
-          ${arrow}
-        `;
-      })
-      .join("");
+        `
+        : "";
+
+      flowParts.push(`
+        <div class="flow-row flow-row--cols-${row.cells.length}">
+          ${cells}
+        </div>
+        ${arrow}
+      `);
+      rowIndex += 1;
+    }
+
+    connectionFlow.innerHTML = flowParts.join("");
   }
 
   setText("indicators-label", indicators.sectionTitle);
