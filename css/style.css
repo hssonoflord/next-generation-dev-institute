@@ -352,6 +352,7 @@ button {
   line-height: 1.8;
   margin-bottom: 40px;
   max-width: 500px;
+  white-space: pre-line;
 }
 
 .hero__actions {
@@ -495,6 +496,10 @@ button {
 
 .scripture-block__verses p + p {
   margin-top: 4px;
+}
+
+.scripture-block__verses strong {
+  font-weight: 800;
 }
 
 .scripture-block__ref {
@@ -662,6 +667,28 @@ button {
   text-align: center;
   padding: 10px 12px;
   letter-spacing: -0.02em;
+}
+
+.flow-cell--discipleship {
+  padding: 0;
+  background: transparent;
+}
+
+.flow-cell--discipleship .flow-cell__label {
+  padding: 10px 12px;
+  background: #355a6b;
+}
+
+.flow-cell__split-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+}
+
+.flow-cell__split-part {
+  display: block;
+  height: 8px;
+  background: #355a6b;
 }
 
 .flow-arrow {

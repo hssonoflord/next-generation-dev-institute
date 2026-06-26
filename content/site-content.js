@@ -26,7 +26,7 @@ const SITE_CONTENT = {
     badge: "WeGrow Community",
     title: "신앙·인성·학업을\n함께 향상시키는\n방과후교육공동체",
     subtitle:
-      "제자화를 통해 긍정적인 정체성과 소명적 비전을 형성하고, 신앙·인성·학업을 연결하는 전인교육을 실현합니다.",
+      "제자화를 통해 긍정적인 정체성과 소명적 비전을 형성하고,\n신앙·인성·학업을 연결하는 전인교육을 실현합니다.",
     backgroundImage: "images/hero-bg.png",
     ctaPrimary: { label: "프로그램 보기", href: "projects.html" },
     ctaSecondary: { label: "미션 & 철학", href: "#mission" },
@@ -40,7 +40,7 @@ const SITE_CONTENT = {
     reference: "골로새서 1:28–29",
     verses: [
       "우리가 그를 전파하여 각 사람을 권하고 모든 지혜로 각 사람을 가르침은",
-      "각 사람을 그리스도 안에서 완전한 자로 세우려 함이니",
+      "<strong>각 사람을 그리스도 안에서 완전한 자로 세우려 함</strong>이니",
       "이를 위하여 나도 내 속에서 능력으로 역사하시는 이의 역사를 따라 힘을 다하여 수고하노라",
     ],
     summary:
@@ -51,26 +51,27 @@ const SITE_CONTENT = {
     sectionTitle: "철학",
     heading: "신앙·인성·학업은\n하나로 연결됩니다",
     paragraphs: [
-      "신앙과 인성과 학업은 분리된 별개의 주제가 아닙니다. 하나님의 목적을 섬기는 제자화를 중심으로 연결되어 있습니다.",
-      "WGC는 인성을 위해 학업을 양보하지 않습니다. 학업을 통해 인성을 훈련합니다.",
+      "신앙과 인성과 학업은 분리된 별개의 주제가 아닙니다. 하나님의 목적과 제자화를 중심으로 연결되어 있습니다.",
+      "WGC는 인성을 위해 학업을 양보하지 않습니다. 학업을 통해 인성을 훈련합니다. 학업은 성실성, 책임감, 인내, 절제, 공감, 배려 등 인성을 단련하는 최고의 현장입니다.",
+      "WGC는 성장과 변화를 서로 격려하는 공동체입니다. 공동체는 성장과 변화 만들어내는 핵심 요소입니다.",
     ],
     values: [
       {
         title: "신앙",
         description:
-          "제자화를 통해 학습의 흡수율을 높이는 마음과 두뇌의 바탕을 마련합니다. 그리스도 안에 모든 지혜와 지식의 보화가 감추어져 있습니다.",
+          "하나님과의 관계를 회복하고, 하나님의 목적을 섬기도록 교육함으로 믿음의 진보를 이룹니다.",
         icon: "✦",
       },
       {
         title: "인성",
         description:
-          "참된 인성은 하나님의 형상의 정체성을 회복하고 실현하는 제자화로부터 나옵니다. 긍정적 정체성과 감성, 소명적 비전을 형성합니다.",
+          "하나님의 형상의 정체성을 회복하고 실현하는 제자화를 통해 참된 인성을 함양합니다.",
         icon: "◈",
       },
       {
         title: "학업",
         description:
-          "학업은 성실성, 책임감, 인내, 절제, 공감, 배려 등 인성을 단련하는 최고의 현장입니다. 학업을 통해 인성을 훈련합니다.",
+          "제자화를 통해 학습의 흡수율을 높이는 마음과 두뇌의 바탕을 마련함으로 학업의 향상을 성취합니다.",
         icon: "◎",
       },
     ],
@@ -84,7 +85,7 @@ const SITE_CONTENT = {
       text: "내가 이렇게 하는 것은, 그들이 사랑으로 결속되어 마음에 격려를 받음으로써, 풍부하고도 완전한 이해력을 갖게 하고, 나아가서는 하나님의 비밀인 그리스도를 깨닫게 하려는 것입니다. 그리스도 안에는 모든 지혜와 지식의 보화가 감추어져 있습니다.",
     },
     flowRows: [
-      { cells: ["제자화"] },
+      { cells: ["제자화"], splitDividerAfter: true },
       { cells: ["하나님의 사람", "하나님의 일꾼"], showArrowAfter: true },
       { cells: ["정체성·자존감", "소명·비전·진로"], showArrowAfter: true },
       { cells: ["긍정적인 감성·에너지·두뇌 형성"], showArrowAfter: true },
@@ -94,7 +95,7 @@ const SITE_CONTENT = {
   },
 
   indicators: {
-    sectionTitle: "WGC 4대 지표",
+    sectionTitle: "WGC 4대 성장 지표",
     heading: "성장을 데이터로 확인합니다",
     description:
       "WGC는 각 학생의 영성지수·자존감지수·자기주도력지수·성적의 4가지 지표를 주기적으로 관리하고 보고합니다. 제자화를 통한 인성과 학업의 향상을 입증함으로 지역사회의 선교를 지원합니다.",
@@ -150,6 +151,7 @@ const SITE_CONTENT = {
       { id: "core", label: "핵심 프로그램" },
       { id: "learning", label: "학습 콘텐츠" },
       { id: "support", label: "지원 시스템" },
+      { id: "operations", label: "운영 체계" },
     ],
     items: [
       {
@@ -226,8 +228,8 @@ const SITE_CONTENT = {
       },
       {
         id: 9,
-        category: "support",
-        categoryLabel: "지원 시스템",
+        category: "operations",
+        categoryLabel: "운영 체계",
         title: "섬기는 사람들",
         description:
           "공동대표·자문, 교육전문가 supporter 그룹이 WGC 교육을 함께 섬깁니다.",
@@ -235,8 +237,8 @@ const SITE_CONTENT = {
       },
       {
         id: 10,
-        category: "support",
-        categoryLabel: "지원 시스템",
+        category: "operations",
+        categoryLabel: "운영 체계",
         title: "협력 교회(기관)",
         description:
           "지역 교회와 기관이 협력하여 WGC 방과후교육공동체를 함께 세워갑니다.",
@@ -257,7 +259,7 @@ const SITE_CONTENT = {
           "WGC 시스템 세팅",
           "콘텐츠/프로그램/솔루션 제공",
           "코치교사 선발 교육훈련",
-          "부모교육",
+          "부모교육 지원",
         ],
       },
       {
@@ -265,7 +267,6 @@ const SITE_CONTENT = {
         items: [
           "교사 추천",
           "학생 모집",
-          "학부모 네트워크 관리",
           "학습환경(교실/장비) 마련",
           "기도",
         ],

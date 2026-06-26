@@ -195,7 +195,21 @@ function renderHomePage() {
     connectionFlow.innerHTML = connection.flowRows
       .map((row) => {
         const cells = row.cells
-          .map((cell) => `<div class="flow-cell">${cell}</div>`)
+          .map((cell) => {
+            if (row.splitDividerAfter) {
+              return `
+                <div class="flow-cell flow-cell--discipleship">
+                  <div class="flow-cell__label">${cell}</div>
+                  <div class="flow-cell__split-row" aria-hidden="true">
+                    <span class="flow-cell__split-part"></span>
+                    <span class="flow-cell__split-part"></span>
+                  </div>
+                </div>
+              `;
+            }
+
+            return `<div class="flow-cell">${cell}</div>`;
+          })
           .join("");
         const arrow = row.showArrowAfter
           ? `
